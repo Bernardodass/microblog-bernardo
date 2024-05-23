@@ -6,4 +6,8 @@ Implantar um banco de dados no servidor/back-end.
 
 ### Criar o banco de dados
 
+
+
+```sql
 CREATE DATABASE microblog_bernardo CHARACTER SET utf8mb4;
+```

@@ -133,3 +133,23 @@ SELECT titulo, data FROM noticias;
 SELECT titulo, data FROM noticias ORDER BY data DESC;
 -- Usamos o ORDER BY data DESC par classificar em orde decrescente pela data
 ```
+
+### SELECT com JOIN (consulta com junção de tabelas)
+
+**Objetivo** realizar uma consulta que mostre a data e o título da notícia **e** o nome do autor da notícia.
+
+```sql
+-- selecionando as tabelas em que estão
+SELECT
+    noticias.data,
+    noticias.titulo,
+    usuarios.nome
+
+    -- especificamos as tabelas que serão "juntadas/combinadas"
+FROM noticias JOIN usuarios
+
+-- critério da junção/relação entre as tabelas
+-- usamos as referências de FK e PK
+ON noticias.usuario_id = usuarios.id    
+```
+

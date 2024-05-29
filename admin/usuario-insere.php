@@ -6,7 +6,19 @@ require_once "../inc/funcoes-usuarios.php";
 
 /* Detectando se o botão inserir foi acionado */
 if(isset($_POST['inserir'])){
-	echo "OK!";
+	// capturando os dados digitados
+	$nome = $_POST['nome'];
+	$email = $_POST['email'];
+	$tipo = $_POST['tipo'];
+
+	// capturando a senha e a codificando/criptografando
+	$senha =password_hash($_POST['senha'], PASSWORD_DEFAULT);
+
+	// chamandok a função de inserir usuário e passando os dados
+	inserirusuario($conexao, $nome, $email, $tipo, $senha);
+
+	// redirecionando para a lista de usuários
+	header("location:usuarios.php");
 }
 ?>
 

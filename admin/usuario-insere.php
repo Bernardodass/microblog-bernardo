@@ -1,5 +1,13 @@
 <?php 
 require_once "../inc/cabecalho-admin.php";
+
+// importando as funções de manipulação dos	usuarios
+require_once "../inc/funcoes-usuarios.php";
+
+/* Detectando se o botão inserir foi acionado */
+if(isset($_POST['inserir'])){
+	echo "OK!";
+}
 ?>
 
 

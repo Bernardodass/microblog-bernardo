@@ -13,8 +13,6 @@ function inserirUsuario($conexao, $nome, $email, $tipo, $senha)
  
  
  
- 
- 
 function lerUsuarios($conexao)
 {
  
@@ -49,3 +47,8 @@ function atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo){
         mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 
+// Função para deletar usuário
+function deletarUsuario($conexao, $id) {
+    $sql = "DELETE FROM usuarios WHERE id = $id";
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}

@@ -1,32 +1,40 @@
 <?php
-/* Acessando os dados da conexão ao servidor */
+// acesso aos dados da conexão do servidor
 require "conecta.php";
-
-function inserirusuario($conexao, $nome, $email, $tipo, $senha){
-    /* Montando o comando SQL em uma variável */
-    $sql = "INSERT INTO usuarios(nome, email, tipo, senha)
-    VALUES('$nome', '$email', '$tipo', '$senha')";
-
-/* Execultando o comando no banco */
-mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+ 
+function inserirUsuario($conexao, $nome, $email, $tipo, $senha)
+{
+    // montando o comando SQL em uma variavel
+    $sql = "INSERT INTO usuarios (nome, email, tipo, senha) VALUES ('$nome', '$email', '$tipo','$senha')";
+ 
+    // Executando o comando no banco
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
-
-
-
-function lerUsuarios($conexao){
-    // comando SQL
-   $sql = "SELECT id, nome, tipo, email FROM usuarios ORDER BY nome";
+ 
+ 
+ 
+ 
+ 
+function lerUsuarios($conexao)
+{
+ 
+    $sql = "SELECT id,nome,tipo,email FROM usuarios ORDER BY nome";
    
-   // execulção do comando
-  $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-
-    // retornamos o resultado TRANSFORMADO em array associativo 
+    //execução do comando e armazenamento do resultado
+    $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+ 
+ 
+    // Retornamos o resultado TRANSFORMADO em array associativo
     return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 }
-
+ 
 function lerUmUsuario($conexao, $id){
-        $sql = "SELECT * FROM usuario WHERE id = $id";
-        $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-
-        return mysqli_fetch_assoc($resultado);
+ 
+    $sql = "SELECT * FROM usuarios WHERE id = $id";
+    $resultado = mysqli_query($conexao,$sql) or die (mysqli_error($conexao));
+ 
+    // retornamos um unico array associativo com os do usuario selecionado
+    return mysqli_fetch_assoc($resultado);
+ 
 }
+ 

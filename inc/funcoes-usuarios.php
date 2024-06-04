@@ -15,7 +15,7 @@ mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
 function lerUsuarios($conexao){
     // comando SQL
-   $sql = "SELECT id, nome, tipo, email FROM usuarios";
+   $sql = "SELECT id, nome, tipo, email FROM usuarios ORDER BY nome";
    
    // execulção do comando
   $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));

@@ -16,14 +16,21 @@ if (isset($_POST['atualizar'])) {
  
     if (empty($_POST['senha']) || password_verify($_POST['senha'], $dadosDoUsuario['senha'])) {
        
+
+		// manter a mesma senha
+		$senha = $dadosDoUsuario['senha'];
     }else {
-       
+		$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
    
     }
  
- 
- 
-    // caso contrario, pegaremos a senha nova e a criptografamos antes de mandarmos para o banco
+		atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo);
+
+		// redirecionamos para a página que mostra todos usuários
+		header("location:usuarios.php");
+
+	
+	// caso contrario, pegaremos a senha nova e a criptografamos antes de mandarmos para o banco
 }
  
 ?>

@@ -38,3 +38,14 @@ function lerUmUsuario($conexao, $id){
  
 }
  
+function atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo){
+    $sql = "UPDATE usuarios SET 
+        nome = '$nome', 
+        email = '$email',
+        senha = '$senha',
+        tipo = '$tipo'
+        WHERE id = $id"; // NÃO ESQUEÇA ESSA BAGAÇA NUNCA! 🤦‍♂️
+
+        mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}
+

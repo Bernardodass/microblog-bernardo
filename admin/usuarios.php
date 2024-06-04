@@ -29,7 +29,7 @@ require_once "../inc/cabecalho-admin.php";
 				</thead>
 
 				<tbody>
-
+<?php foreach($listadeusuarios as $usuario) {?>
 					<tr>
 						<td> Nome... </td>
 						<td> E-mail... </td>
@@ -46,7 +46,7 @@ require_once "../inc/cabecalho-admin.php";
 							</a>
 						</td>
 					</tr>
-
+<?php}?>
 				</tbody>                
 			</table>
 	</div>

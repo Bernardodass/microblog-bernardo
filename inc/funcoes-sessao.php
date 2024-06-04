@@ -18,7 +18,7 @@ function verificaAcesso(){
         // portanto, destruimos a sessão
         session_destroy();
         // fazemos o usuário voltar para a página login
-        header("location:.../login.php");
+        header("location:../login.php");
         // paramos qualquer outra execução/processamento
         exit; // ou die()
     }

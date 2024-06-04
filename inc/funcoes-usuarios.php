@@ -28,5 +28,5 @@ function lerUmUsuario($conexao, $id){
         $sql = "SELECT * FROM usuario WHERE id = $id";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
-        return mysqli_fetch_assoc($resultado)
+        return mysqli_fetch_assoc($resultado);
 }

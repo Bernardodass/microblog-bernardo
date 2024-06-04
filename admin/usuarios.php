@@ -3,7 +3,7 @@ require_once "../inc/cabecalho-admin.php";
 require_once "../inc/funcoes-usuarios.php";
  
 // chamando a função que carrega/lista/lê os usuarios
-$lsitaUsuarios = lerUsuarios($conexao);
+$listaUsuarios = lerUsuarios($conexao);
 ?>
  
 <div class="row">
@@ -32,14 +32,17 @@ $lsitaUsuarios = lerUsuarios($conexao);
                 </thead>
  
                 <tbody>
-<?php foreach ($lsitaUsuarios as $usuario){ ?>
+<?php foreach($listaUsuarios as $usuario){ ?>
                     <tr>
                         <td> <?=$usuario["nome"]?> </td>
                         <td> <?=$usuario["email"]?> </td>
                         <td> <?=$usuario["tipo"]?></td>
+
+<!-- Aten~]ao ao endereço/url indicado no link : nós ciramos um parametro de url chamado id contendo o valor dinamico do id de cada usuario -->
+
                         <td class="text-center">
                             <a class="btn btn-warning"
-                            href="usuario-atualiza.php">
+		href="usuario-atualiza.php?id=<?=$usuario["id"]?>">
                             <i class="bi bi-pencil"></i> Atualizar
                             </a>
                        

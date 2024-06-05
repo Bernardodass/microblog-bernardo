@@ -1,6 +1,7 @@
 <?php
 require_once "funcoes-sessao.php";
 verificaAcesso();
+verificaNivel();
 
 /* se o  parametro de url 'sair' existir, ou seja, quando o link for clicado, entao execulte a função logout */
 if(isset($_GET['sair'])) logout();

@@ -1,6 +1,6 @@
 <?php 
 require_once "../inc/cabecalho-admin.php";
-
+verificaNivel();
 // importando as funções de manipulação dos	usuarios
 require_once "../inc/funcoes-usuarios.php";
 

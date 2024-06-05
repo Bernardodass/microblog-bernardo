@@ -1,7 +1,7 @@
 <?php
 require_once "../inc/cabecalho-admin.php";
 require_once "../inc/funcoes-usuarios.php";
- 
+verificaNivel();
 /* mensagens de feedback */
 if(isset($_GET['campos_obrigatorios'])){
     $mensagem = "preencha e-mail e senha";

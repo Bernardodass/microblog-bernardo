@@ -2,6 +2,21 @@
 require_once "../inc/cabecalho-admin.php";
 require_once "../inc/funcoes-usuarios.php";
  
+/* mensagens de feedback */
+if(isset($_GET['campos_obrigatorios'])){
+    $mensagem = "preencha e-mail e senha";
+} elseif(isset($_GET['dados_incorretos'])){
+    $mensagem = "dados incorretos, verifique e tente novamente";
+} elseif(isset($_GET['saiu'])){
+    $mensagem = "voce saiu do sistema... até mais!";
+} elseif(isset($_GET['acesso_negado'])) {
+    $mensagem = "voce deve logar primeiro!";
+}
+
+if(isset($_POST['entrar'])){
+
+}
+
 // chamando a função que carrega/lista/lê os usuarios
 $listaUsuarios = lerUsuarios($conexao);
 ?>
@@ -10,7 +25,7 @@ $listaUsuarios = lerUsuarios($conexao);
     <article class="col-12 bg-white rounded shadow my-1 py-4">
        
         <h2 class="text-center">
-        Usuários <span class="badge bg-dark">X</span>
+        Usuários <span class="badge bg-dark"><?=count($listaUsuarios)?></span>
         </h2>
  
         <p class="text-center mt-5">
@@ -38,7 +53,7 @@ $listaUsuarios = lerUsuarios($conexao);
                         <td> <?=$usuario["email"]?> </td>
                         <td> <?=$usuario["tipo"]?></td>
 
-<!-- Atenção ao endereço/url indicado no link : nós ciramos um parametro de url chamado id contendo o valor dinamico do id de cada usuario -->
+<!-- Atencao ao endereço/url indicado no link : nós ciramos um parametro de url chamado id contendo o valor dinamico do id de cada usuario -->
 
                         <td class="text-center">
                             <a class="btn btn-warning"

@@ -38,7 +38,7 @@ $listaUsuarios = lerUsuarios($conexao);
                         <td> <?=$usuario["email"]?> </td>
                         <td> <?=$usuario["tipo"]?></td>
 
-<!-- Aten~]ao ao endereço/url indicado no link : nós ciramos um parametro de url chamado id contendo o valor dinamico do id de cada usuario -->
+<!-- Atenção ao endereço/url indicado no link : nós ciramos um parametro de url chamado id contendo o valor dinamico do id de cada usuario -->
 
                         <td class="text-center">
                             <a class="btn btn-warning"

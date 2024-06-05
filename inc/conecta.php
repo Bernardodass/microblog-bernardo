@@ -18,7 +18,7 @@ if(!$conexao){
     // deu problema? "mate/pare" a aplicação!
     die("Ferrou:" .mysqli_connect_error());
 } else{
-    echo "Beleza, conectando...";
+    
 }
 
 

@@ -23,3 +23,16 @@ function verificaAcesso(){
         exit; // ou die()
     }
 }
+
+function login($id, $nome, $tipo){
+    // variáveis de sessão
+    $_SESSION['id'] = $id;
+    $_SESSION['nome'] = $nome;
+    $_SESSION['tipo'] = $tipo;
+}
+
+function logout(){
+    session_destroy();
+    header("location...");
+    exit; // ou die();
+}

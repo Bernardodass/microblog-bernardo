@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/05/2024 às 22:27
+-- Tempo de geração: 05/06/2024 às 22:19
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -58,10 +58,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
-(6, 'dompedroprimeiro', 'dompedroprimeiro@gmail.com', '$2y$10$DMyEokYtMCcxCkSAZRfraOAIivRi4bber9OeVdbqVfv9QCh9OniZy', 'editor'),
-(7, 'dompedrosegundo', 'dompedrosegundo@gmail.com', '$2y$10$Iku5AfhbaYez/8N59S5VuulstPny1j/haEvMm/wmU.mLyyDjbZB7C', 'editor'),
-(8, 'dompedroterceiro', 'dompedroterceiro@gmail.com', '$2y$10$Nv/k/IaTsXmwaemVJz6nhOHrITg4Ss7HjBSZjC4Ik3ro7nApcvJFi', 'editor'),
-(9, 'dommiguel', 'dommiguel@gmail.com', '$2y$10$EJokMIjZ.YKji/0KHTlAZ.nUIEFLcpTPnVTW3Dm1gQR82TRc58Cky', 'editor');
+(6, 'Dom Pedro Primeiro', 'dompedroprimeiro@gmail.com', '$2y$10$c/IwxYKK0ox88hDdGh1LiOVKN5v34dn1DY4dggk2tf3F3vI5a9t3a', 'editor'),
+(7, 'Dom Pedro Segundo', 'dompedrosegundo@gmail.com', '$2y$10$ky9Ld4emefrCJUxH8d9uXu4Mnb0yP74/mxebCooYT/PvueylPvevW', 'editor'),
+(8, 'Dom Pedro Terceiro', 'dompedroterceiro@gmail.com', '$2y$10$JFO.dKdkjPvdBf5Qi51mW.9AnbZL8sSEMoIOlW3ndX9MGWHL2PZ0u', 'editor'),
+(11, 'Dom Bernardo', 'dombernardo@gmail.com', '$2y$10$b.3sezOUwBwLyExTjUIC2.lFIVq0WpjJVzbCPcRzPwIYXySDTrqFi', 'admin');
 
 --
 -- Índices para tabelas despejadas
@@ -95,7 +95,7 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para tabelas despejadas

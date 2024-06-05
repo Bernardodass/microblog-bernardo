@@ -62,3 +62,4 @@ function buscaUsuario($conexao, $email){
 
     return mysqli_fetch_assoc($resultado);
 }
+

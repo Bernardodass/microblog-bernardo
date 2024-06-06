@@ -11,8 +11,11 @@ $tipoUsuario = $_SESSION['tipo'];
 // chamando a função, passando os parametros e recebendo os dados
 $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 
+
+
 ?>
 
+<pre><?=var_dump($listaDeNoticias)?></pre>
 
 <div class="row">
 	<article class="col-12 bg-white rounded shadow my-1 py-4">

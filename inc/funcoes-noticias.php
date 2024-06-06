@@ -36,7 +36,14 @@ function inserirNoticia($conexao, $titulo, $texto, $resumo, $nomeImagem, $usuari
 
 function lerNoticias($conexao, $idUsuario, $tipoUsuario)
 {
-    $sql = "SELECT * FROM noticias ORDER BY data DESC";
+    $sql = "SELECT
+     noticias.id,
+     noticias.titulo,
+      noticias.data,
+      usuarios.nome
+       FROM noticias JOIN usuarios
+        ON noticias.usuario_id = usuarios.id
+        ORDER BY data DESC";
 
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
@@ -45,10 +52,8 @@ function lerNoticias($conexao, $idUsuario, $tipoUsuario)
 
 function lerUmaNoticia($conexao)
 {
-
 }
 
 function excluirNoticia($conexao)
 {
-
 }

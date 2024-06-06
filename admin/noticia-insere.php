@@ -1,5 +1,18 @@
 <?php 
 require_once "../inc/cabecalho-admin.php";
+require_once "../inc/funcoes-noticias.php";
+
+if(isset($_POST['inserir'])){
+	$titulo = $_POST['titulo'];
+	$texto = $_POST['texto'];
+	$resumo = $_POST['resumo'];
+
+	/* obtendo o id do usuario que esta logado e inserindo na noticia. Portanto a noticia sera associada ao usuario (devido ao uso da chave estrangeira e relacionamento no banco.) */
+	$usuarioId = $_SESSION['id'];
+
+	/* capturando os dados do arquivo enviado */
+	$imagem = $_FILES[];
+}
 ?>
 
 
@@ -10,7 +23,7 @@ require_once "../inc/cabecalho-admin.php";
 		Inserir nova notícia
 		</h2>
 				
-		<form autocomplete="off" class="mx-auto w-75" action="" method="post" id="form-inserir" name="form-inserir">            
+		<form enctype="multipart/form-data" autocomplete="off" class="mx-auto w-75" action="" method="post" id="form-inserir" name="form-inserir">            
 
 			<div class="mb-3">
                 <label class="form-label" for="titulo">Título:</label>

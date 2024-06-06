@@ -11,8 +11,17 @@ if(isset($_POST['inserir'])){
 	$usuarioId = $_SESSION['id'];
 
 	/* capturando os dados do arquivo enviado */
-	$imagem = $_FILES[];
-}
+	$imagem = $_FILES["imagem"];
+
+
+
+	/* fazendo o upload da imagem para o servidor */
+	upload($imagem);
+
+	/* enviar os dados para o banco de dados */
+	inserirNoticia();
+
+	header("location:noticias.php");
 ?>
 
 
@@ -23,6 +32,8 @@ if(isset($_POST['inserir'])){
 		Inserir nova notícia
 		</h2>
 				
+
+		<!-- o atributo enctype com valor indicado pe necessario quando queremos que o fomulário aceite o envio/processamento de arquivos de qualquer natureza. -->
 		<form enctype="multipart/form-data" autocomplete="off" class="mx-auto w-75" action="" method="post" id="form-inserir" name="form-inserir">            
 
 			<div class="mb-3">

@@ -15,7 +15,6 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 
 ?>
 
-<pre><?=var_dump($listaDeNoticias)?></pre>
 
 <div class="row">
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
@@ -45,22 +44,23 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 				<tbody>
 
 					<tr>
-                        <td> Título da notícia... </td>
-                        <td> 21/12/2112 21:12 </td>
-                        <td> Autor da notícia... </td>
+						<?php foreach($listaDeNoticias as $noticias){ ?>
+                        <td> <?=$noticias['titulo']?> </td>
+                        <td><?= date('d/m/Y H:i', strtotime($noticias["data"])) ?></td>
+                        <td> <?=$noticias['nome']?> </td>
 						<td class="text-center">
 							<a class="btn btn-warning" 
-							href="noticia-atualiza.php">
+							href="noticia-atualiza.php?id=<?=$noticias["id"]?>">
 							<i class="bi bi-pencil"></i> Atualizar
 							</a>
 						
 							<a class="btn btn-danger excluir" 
-							href="noticia-exclui.php">
+							href="noticia-exclui.php?id=<?=$noticias["id"]?>">
 							<i class="bi bi-trash"></i> Excluir
 							</a>
 						</td>
 					</tr>
-
+<?php }?>
 				</tbody>                
 			</table>
 	</div>

@@ -19,9 +19,10 @@ if(isset($_POST['inserir'])){
 	upload($imagem);
 
 	/* enviar os dados para o banco de dados */
-	inserirNoticia();
+	inserirNoticia($conexao, $titulo, $texto, $resumo, $imagem['name'], $usuarioId);
 
 	header("location:noticias.php");
+}
 ?>
 
 

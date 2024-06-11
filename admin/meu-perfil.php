@@ -20,11 +20,11 @@ require_once "../inc/cabecalho-admin.php";
 require_once '../inc/funcoes-usuarios.php';
 
 // 2) Pegue o ID do usuário através da SESSÃO
-session_start();
-$id_usuario = $_SESSION['id_usuario'];
+
+$id = $_SESSION['id'];
 
 // 3) Chame a função lerUmUsuario e guarde o que ela retorna (array de dados)
-$dados_usuario = lerUmUsuario($id_usuario);
+$dadosDoUsuario = lerUmUsuario($conexao,$id);
 
 // 4) Programe uma condicional para detectar se o formulário de atualização foi acionado.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // 4.4) Fora da condicional da senha, chame a função atualizarUsuario e passe os dados pra ela
-    atualizarUsuario($id_usuario, $novo_nome, $novo_email, $nova_senha, $tipo_usuario);
+    atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo);
 
     // 4.5) Redirecione para a página index.php (a que está dentro de admin)
     header('Location: admin/index.php');

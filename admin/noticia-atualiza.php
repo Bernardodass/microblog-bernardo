@@ -7,7 +7,7 @@ $idNoticia = $_GET['id'];
 // capturando o id do usuario logado
 $idUsuario = $_SESSION['id'];
 // capturando o tipo do usuario logado
-$tituloUsuario = $_SESSION['tipo'];
+$tipoUsuario = $_SESSION['tipo'];
 
 // chamando a função e recuperando os dados da noticia
 $dadosNoticia = lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario);
@@ -15,6 +15,7 @@ $dadosNoticia = lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario);
 
 ?>
 
+<pre><?= var_dump($dadosNoticia)?></pre>
 
 <div class="row">
     <article class="col-12 bg-white rounded shadow my-1 py-4">

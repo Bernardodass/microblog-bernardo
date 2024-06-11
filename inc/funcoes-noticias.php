@@ -1,7 +1,8 @@
 <?php
 require "conecta.php";
 
-function formataData($data){
+function formataData($data)
+{
     return date('d/m/Y H:i', strtotime($data));
 }
 
@@ -40,9 +41,9 @@ function inserirNoticia($conexao, $titulo, $texto, $resumo, $nomeImagem, $usuari
 
 function lerNoticias($conexao, $idUsuario, $tipoUsuario)
 {
-if($tipoUsuario == 'admin'){
-    // admin pode ver TUDO
-    $sql = "SELECT
+    if ($tipoUsuario == 'admin') {
+        // admin pode ver TUDO
+        $sql = "SELECT
      noticias.id,
      noticias.titulo,
       noticias.data,
@@ -50,13 +51,13 @@ if($tipoUsuario == 'admin'){
        FROM noticias JOIN usuarios
         ON noticias.usuario_id = usuarios.id
         ORDER BY data DESC";
-} else{
-    // editor pode ver SOMENTE DELE/DELA
-    $sql = "SELECT titulo, data, id FROM noticias
+    } else {
+        // editor pode ver SOMENTE DELE/DELA
+        $sql = "SELECT titulo, data, id FROM noticias
                 WHERE usuario_id = $idUsuario ORDER BY data DESC";
-}
+    }
 
-    
+
 
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
@@ -65,21 +66,20 @@ if($tipoUsuario == 'admin'){
 
 function lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario)
 {
-if($tipoUsuario == 'admin'){
-    // pode carregar/ver qualquer noticia
-    $sql = "SELECT * FROM noticias WHERE id = $idNoticia";
-} else{
-    // pode carregar/ver SOMENTE SUA noticia (basta saber qual noticia e qual usuario)
-    $sql = "SELECT * FROM noticias WHERE id = $idNoticia AND usuario_id = $idUsuario";
-}   
+    if ($tipoUsuario == 'admin') {
+        // pode carregar/ver qualquer noticia
+        $sql = "SELECT * FROM noticias WHERE id = $idNoticia";
+    } else {
+        // pode carregar/ver SOMENTE SUA noticia (basta saber qual noticia e qual usuario)
+        $sql = "SELECT * FROM noticias WHERE id = $idNoticia AND usuario_id = $idUsuario";
+    }
 
-mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
-return return mysqli_fetch_assoc($resultado);
-
+    // retornando UM ARRAY com os dados da noticia escolhida
+    return mysqli_fetch_assoc($resultado);
 }
 
 function excluirNoticia($conexao)
 {
-
 }

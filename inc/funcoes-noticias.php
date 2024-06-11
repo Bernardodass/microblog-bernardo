@@ -73,6 +73,10 @@ if($tipoUsuario == 'admin'){
     $sql = "SELECT * FROM noticias WHERE id = $idNoticia AND usuario_id = $idUsuario";
 }   
 
+mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+return return mysqli_fetch_assoc($resultado);
+
 }
 
 function excluirNoticia($conexao)

@@ -8,6 +8,11 @@ $idNoticia = $_GET['id'];
 $idUsuario = $_SESSION['id'];
 // capturando o tipo do usuario logado
 $tituloUsuario = $_SESSION['tipo'];
+
+// chamando a função e recuperando os dados da noticia
+$dadosNoticia = lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario);
+
+
 ?>
 
 

@@ -63,8 +63,15 @@ if($tipoUsuario == 'admin'){
     return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 }
 
-function lerUmaNoticia($conexao)
+function lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario)
 {
+if($tipoUsuario == 'admin'){
+    // pode carregar/ver qualquer noticia
+    $sql = "SELECT * FROM noticias WHERE id = $idNoticia";
+} else{
+    // pode carregar/ver SOMENTE SUA noticia (basta saber qual noticia e qual usuario)
+    $sql = "SELECT * FROM noticias WHERE id = $idNoticia AND usuario_id = $idUsuario";
+}   
 
 }
 

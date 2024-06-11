@@ -20,7 +20,7 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Notícias <span class="badge bg-dark">X</span>
+		Notícias <span class="badge bg-dark"><?=count($listaDeNoticias)?></span>
 		</h2>
 
 		<p class="text-center mt-5">
@@ -36,7 +36,9 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 					<tr>
                         <th>Título</th>
                         <th>Data</th>
+						<?php if($tipoUsuario == 'admin') {?>
                         <th>Autor</th>
+						<?php }?>
 						<th class="text-center">Operações</th>
 					</tr>
 				</thead>
@@ -47,7 +49,9 @@ $listaDeNoticias = lerNoticias($conexao, $idUsuario, $tipoUsuario);
 						<?php foreach($listaDeNoticias as $noticias){ ?>
                         <td> <?=$noticias['titulo']?> </td>
                         <td><?= formataData($noticias["data"]) ?></td>
+						<?php if($tipoUsuario == 'admin'){?>
                         <td> <?=$noticias['nome']?> </td>
+						<?php }?>
 						<td class="text-center">
 							<a class="btn btn-warning" 
 							href="noticia-atualiza.php?id=<?=$noticias["id"]?>">

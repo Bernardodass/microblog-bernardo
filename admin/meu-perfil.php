@@ -37,13 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tipo_usuario = $_SESSION['tipo_usuario'];
 
     // 4.3) Faça a programação condicional necessária para a senha (é o mesmo código usado em usuario-atualiza.php)
-    if (!empty($_POST['senha'])) {
-        $nova_senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-    } else {
-        // Se a senha não for atualizada, manter a senha antiga
-        $nova_senha = $dados_usuario['senha'];
+    if (empty($_POST['senha']) || password_verify($_POST['senha'], $dadosDoUsuario['senha'])) {
+		// manter a mesma senha
+		$senha = $dadosDoUsuario['senha'];
+    }else {
+		$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     }
-
     // 4.4) Fora da condicional da senha, chame a função atualizarUsuario e passe os dados pra ela
     atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo);
 

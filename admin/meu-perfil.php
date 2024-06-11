@@ -30,11 +30,11 @@ $dadosDoUsuario = lerUmUsuario($conexao,$id);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // 4.1) Capture os dados digitados no formulário (nome, e-mail)
-    $novo_nome = $_POST['nome'];
-    $novo_email = $_POST['email'];
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
 
     // 4.2) Capture o tipo do usuário através da SESSÃO
-    $tipo_usuario = $_SESSION['tipo_usuario'];
+    $tipo = $_SESSION['tipo'];
 
     // 4.3) Faça a programação condicional necessária para a senha (é o mesmo código usado em usuario-atualiza.php)
     if (empty($_POST['senha']) || password_verify($_POST['senha'], $dadosDoUsuario['senha'])) {
@@ -47,12 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo);
 
     // 4.5) Redirecione para a página index.php (a que está dentro de admin)
-    header('Location: admin/index.php');
-    exit();
+    header('Location:index.php');
 }
-
-
-
 
 
 
@@ -70,12 +66,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			<div class="mb-3">
 				<label class="form-label" for="nome">Nome:</label>
-				<input class="form-control" type="text" id="nome" name="nome" required>
+				<input value="<?=$dadosDoUsuario['nome']?>" class="form-control" type="text" id="nome" name="nome" required>
 			</div>
 
 			<div class="mb-3">
 				<label class="form-label" for="email">E-mail:</label>
-				<input class="form-control" type="email" id="email" name="email" required>
+				<input value="<?=$dadosDoUsuario['email']?>" class="form-control" type="email" id="email" name="email" required>
 			</div>
 
 			<div class="mb-3">

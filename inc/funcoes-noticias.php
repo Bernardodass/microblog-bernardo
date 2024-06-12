@@ -82,9 +82,10 @@ function lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario)
 
 
 
-function atualizarNoticia($conexao, $titulo, $texto, $resumo, $imagem, $idNoticia, $idUsuario, $tipoUsuario){
+function atualizarNoticia($conexao, $titulo, $texto, $resumo, $imagem, $idNoticia, $idUsuario, $tipoUsuario)
+{
 
-    if($tipoUsuario == 'admin'){
+    if ($tipoUsuario == 'admin') {
         // pode atualizar QUALQUER noticia (basta saber qual)
         $sql = "UPDATE noticias SET titulo = '$titulo', texto = '$texto', resumo = '$resumo', imagem = '$imagem' WHERE id = $idNoticia
     
@@ -100,13 +101,13 @@ function atualizarNoticia($conexao, $titulo, $texto, $resumo, $imagem, $idNotici
 
 function excluirNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario)
 {
-    if($tipoUsuario == 'admin'){
- $sql = "DELETE FROM noticias WHERE id = $idNoticia";
- } else {
-    $sql = "DELETE FROM noticias WHERE id = $idNoticia AND usuario_id = $idUsuario";
- }
+    if ($tipoUsuario == 'admin') {
+        $sql = "DELETE FROM noticias WHERE id = $idNoticia";
+    } else {
+        $sql = "DELETE FROM noticias WHERE id = $idNoticia AND usuario_id = $idUsuario";
+    }
 
-mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 
 /* ************ */
@@ -115,7 +116,8 @@ mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 index, noticia, resultados */
 
 // index.php
-function lerTodasNoticias($conexao){
+function lerTodasNoticias($conexao)
+{
     $sql = "SELECT titulo, imagem, resumo, id FROM noticias ORDER BY data DESC";
 
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
@@ -124,7 +126,18 @@ function lerTodasNoticias($conexao){
 }
 
 // noticia.php
-function lerNoticiaCompleta($conexao){}
+function lerNoticiaCompleta($conexao, $id)
+{
+    $sql = "SELECT noticias.id, noticias.titulo, noticias.data, noticias.imagem, noticias.texto, usuarios.nome FROM noticias JOIN usuarios ON noticias.usuario_id = usuarios.id WHERE noticias.id = $id";
+
+    $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+    return mysqli_fetch_assoc($resultado);
+
+}
 
 // resultados.php
-function busca($conexao){}
+function busca($conexao)
+{
+
+}

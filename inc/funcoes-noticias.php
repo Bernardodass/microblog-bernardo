@@ -108,3 +108,17 @@ function excluirNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario)
 
 mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
+
+/* ************ */
+
+/* funções usadas nas páginas PÚBLICAS no Microblog:
+index, noticia, resultados */
+
+// index.php
+function lerTodasNoticias($conexao){}
+
+// noticia.php
+function lerNoticiaCompleta($conexao){}
+
+// resultados.php
+function busca($conexao){}

@@ -4,7 +4,6 @@ require "inc/funcoes-noticias.php";
 $listaDeNoticias = lerTodasNoticias($conexao);
 ?>  
 
-<pre><?=var_dump($listaDeNoticias)?></pre>
 
 <div class="row my-1 mx-md-n1">
 

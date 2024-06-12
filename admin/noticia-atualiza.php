@@ -12,6 +12,27 @@ $tipoUsuario = $_SESSION['tipo'];
 // chamando a função e recuperando os dados da noticia
 $dadosNoticia = lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario);
 
+if(isset($_POST['atualizar'])){
+    $titulo = $_POST['titulo'];
+    $texto = $_POST['texto'];
+    $resumo = $_POST['resumo'];
+
+    /* lógica para a imagem */
+
+    
+    /* se o campo "imagem" estiver vazio, então significa que o usuario não quer trocar de imagem. neste caso o sistema vai manter a "imagem inexistente" */
+    if(empty($_FILES['imagem']['name'])){
+        $imagem = $_POST['imagem-existente'];
+    }else {
+    /* caso contrario, então pegamos a referencia do novo arquivo(nome e extensao), e fazemos o processo de upload. */
+            $imagem = $_FILES['imagem']['name']; // pegando nome
+            upload($_FILES['imagem']); // fazendo upload/envio
+    }
+
+    atualizarNoticia($conexao, $titulo, $texto, $resumo, $imagem, $idNoticia, $idUsuario, $tipoUsuario);
+
+    header("location:noticias.php");
+}
 
 ?>
 
@@ -23,7 +44,7 @@ $dadosNoticia = lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario);
             Atualizar dados da notícia
         </h2>
 
-        <form autocomplete="off" class="mx-auto w-75" action="" method="post" id="form-atualizar" name="form-atualizar">
+        <form enctype="multipart/form-data" autocomplete="off" class="mx-auto w-75" action="" method="post" id="form-atualizar" name="form-atualizar">
 
             <div class="mb-3">
                 <label class="form-label" for="titulo">Título:</label>

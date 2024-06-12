@@ -5,13 +5,11 @@ require_once "../inc/funcoes-sessao.php";
 
 verificaAcesso();
 
-$id = $_GET['id'];
+$idNoticia = $_GET['id'];
+$idUsuario = $_SESSION['id'];
+$tipoUsuario = $_SESSION['tipo'];
 
-excluirNoticia($conexao, $id);
+excluirNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario);
 
 header("location:noticias.php")
-
-
-
-
 ?>

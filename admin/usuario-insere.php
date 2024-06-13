@@ -7,9 +7,9 @@ verificaNivel();
 /* Detectando se o botão inserir foi acionado */
 if(isset($_POST['inserir'])){
 	// capturando os dados digitados
-	$nome = $_POST['nome'];
-	$email = $_POST['email'];
-	$tipo = $_POST['tipo'];
+	$nome = htmlspecialchars($_POST['nome']);
+	$email = htmlspecialchars($_POST['email']);
+	$tipo = htmlspecialchars($_POST['tipo']);
 
 	// capturando a senha e a codificando/criptografando
 	$senha =password_hash($_POST['senha'], PASSWORD_DEFAULT);

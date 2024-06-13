@@ -8,9 +8,9 @@ $id = $_GET["id"];
 $dadosDoUsuario = lerUmUsuario($conexao,$id);
  
 if (isset($_POST['atualizar'])) {
-    $nome = $_POST ['nome'];
-    $email = $_POST ['email'];
-    $tipo = $_POST ['tipo'];
+    $nome = htmlspecialchars($_POST ['nome']);
+    $email = htmlspecialchars($_POST ['email']);
+    $tipo = htmlspecialchars($_POST ['tipo']);
    
     // logica para tratamento da senha (se o campo da senha estiver vazio ou se a senha digitada for a mesma já existente no banco, então segnifica usuario NÃO alterou a senha. Portanto, devemos manter a senhas já existente)
  

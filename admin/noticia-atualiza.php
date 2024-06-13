@@ -13,9 +13,9 @@ $tipoUsuario = $_SESSION['tipo'];
 $dadosNoticia = lerUmaNoticia($conexao, $idNoticia, $idUsuario, $tipoUsuario);
 
 if(isset($_POST['atualizar'])){
-    $titulo = $_POST['titulo'];
-    $texto = $_POST['texto'];
-    $resumo = $_POST['resumo'];
+    $titulo = htmlspecialchars($_POST['titulo']);
+    $texto = htmlspecialchars($_POST['texto']);
+    $resumo = htmlspecialchars($_POST['resumo']);
 
     /* lógica para a imagem */
 

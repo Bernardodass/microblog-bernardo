@@ -3,9 +3,9 @@ require_once "../inc/cabecalho-admin.php";
 require_once "../inc/funcoes-noticias.php";
 
 if(isset($_POST['inserir'])){
-	$titulo = $_POST['titulo'];
-	$texto = $_POST['texto'];
-	$resumo = $_POST['resumo'];
+	$titulo = htmlspecialchars($_POST['titulo']);
+	$texto = htmlspecialchars($_POST['texto']);
+	$resumo = htmlspecialchars($_POST['resumo']);
 
 	/* obtendo o id do usuario que esta logado e inserindo na noticia. Portanto a noticia sera associada ao usuario (devido ao uso da chave estrangeira e relacionamento no banco.) */
 	$usuarioId = $_SESSION['id'];
